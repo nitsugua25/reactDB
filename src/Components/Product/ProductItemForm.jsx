@@ -39,7 +39,7 @@ const ProductItemForm = (props) => {
             onChange={handleChange}
             id={props._id}
           />
-          <InputGroup.Text>Kg</InputGroup.Text>
+          <InputGroup.Text>U</InputGroup.Text>
           <InputGroup.Text>{totalPrice} €</InputGroup.Text>
           <Button id={props.name} type="submit" variant="secondary"> 
             Add

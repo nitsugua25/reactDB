@@ -48,7 +48,7 @@ const Cart = ({ show, handleClose }) => {
             <Row key={item.id} style={rowStyle}>
                 <Col sm={4}>{item.id}</Col>
                 <Col sm={2}>{item.product}</Col>
-                <Col sm={2}>{basketQuantities[item.id]} Kg</Col>
+                <Col sm={2}>{basketQuantities[item.id]} U</Col>
                 <Col sm={2}>{item.price} €</Col>
                 <Col sm={1} style={{ display: 'flex', alignItems: 'center', padding: '10px 0', justifyContent: 'center', marginRight: '5px' }}>
                     <Button size='lg' style={{ marginRight: '12px', padding: '8px' }} onClick={() => updateQuantityAndRefresh(item.id, 1)}>+</Button>
@@ -70,7 +70,9 @@ const Cart = ({ show, handleClose }) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    <h2>Your Cart </h2>
+                    <h2>
+                        Your Cart 
+                    </h2>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -91,8 +93,16 @@ const Cart = ({ show, handleClose }) => {
                             </Col>
                             <Modal.Title style={{margin:'10px 30px 10px 0px'}} >
                                 <Row >
-                                    <Col md={4}><h2>Total Amout:</h2></Col>
-                                    <Col style={{display:'flex', justifyContent:'flex-end'}} md={{ span: 4, offset: 4 }}><h2>{getTotalPrice()} €</h2></Col>
+                                    <Col md={4}>
+                                        <h2>
+                                            Total Amout:
+                                        </h2>
+                                        </Col>
+                                    <Col style={{display:'flex', justifyContent:'flex-end'}} md={{ span: 4, offset: 4 }}>
+                                        <h2>
+                                            {getTotalPrice()} €
+                                        </h2>
+                                    </Col>
                                 </Row>
                             </Modal.Title>
                         </Row>
