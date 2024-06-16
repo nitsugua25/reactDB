@@ -2,9 +2,13 @@ const saveBasket = (basket) => {
     localStorage.setItem("basket", JSON.stringify(basket));
 }
 
+
+
 const deleteBasket = () => {
     localStorage.removeItem("basket");
 }
+
+
 
 const getBasket = () => {
     let basket = localStorage.getItem("basket");
@@ -14,6 +18,8 @@ const getBasket = () => {
         return JSON.parse(basket);
     }
 }
+
+
 
 const addBasket = (product) => {
     let basket = getBasket();
@@ -26,11 +32,15 @@ const addBasket = (product) => {
     saveBasket(basket);
 }
 
+
+
 const deleteFromBasket = (product) => {
     let basket = getBasket();
     basket = basket.filter(p => p.id != product.id);
     saveBasket(basket); 
 }
+
+
 
 const updateQuantity = (productId, quantity) => {
     let basket = getBasket();
@@ -44,6 +54,8 @@ const updateQuantity = (productId, quantity) => {
     }
 }
 
+
+
 const getNumberProduct = () => {
     let basket = getBasket();
     let number = 0;
@@ -51,18 +63,9 @@ const getNumberProduct = () => {
     return number;
 }
 
+
+
 const getTotalPrice = () => {
     let basket = getBasket();
     return basket.reduce((total, product) => total += product.quantity * product.price, 0);
 }
-
-
-
-/* 
-function getTotalPrice(){
-    let basket = getBasket();
-    let total = 0;
-    basket.forEach(p => total += p.quantity * p.price);
-    return total;
-}
- */

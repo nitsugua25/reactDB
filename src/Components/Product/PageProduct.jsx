@@ -2,35 +2,35 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Alert, Spinner } from 'react-bootstrap'; // Add the import statement for the Alert component
+import { Alert, Spinner } from 'react-bootstrap'; 
 import ProductItemForm from './ProductItemForm';
 
 function PageProduct() {
     const [product, setProduct] = useState([]);
-    const [loading, setLoading] = useState(true); // State to track loading state
-    const { id } = useParams(); // Récupérer l'ID de l'URL
+    const [loading, setLoading] = useState(true); 
+    const { id } = useParams(); 
 
     useEffect(() => {
         axios
-        .get(`http://localhost:3000/api/product/${id}`) // Requête pour obtenir un produit par son ID unique
+        .get(`http://localhost:3000/api/product/${id}`) 
             .then(response => {
-                setProduct([response.data.product]); // Mettre le produit dans un tableau pour correspondre à la structure attendue
-                setLoading(false); // Set loading to false once data is fetched
+                setProduct([response.data.product]); 
+                setLoading(false); 
             })
             .catch(error => {
                 console.log(error);
-                setLoading(false); // Set loading to false in case of error
+                setLoading(false); 
             });
     }, [id]);
 
-    // Show loading spinner while loading
+    // loading spinner
     if (loading) {
         return <Spinner animation="border" role="status">
                     <span className="sr-only">Loading...</span>
                 </Spinner>;
     }
 
-    // Show error message if product not found
+    // Error message if product does not exist
     if (product.length === 0) {
         return (
             <Alert variant="warning">
@@ -43,7 +43,7 @@ function PageProduct() {
         );
     } 
     
-    // Show product details if product exists
+    // Display product
     else {
         return (
           <section style={{backgroundColor: "rgba(236, 236, 236, 0.5)", borderRadius: '10px',marginTop:'50px'}}>

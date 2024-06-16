@@ -28,7 +28,7 @@ function Product() {
             console.log(error)
           })
 
-      }, []);  /* dépendances */
+      }, []); 
 
     if (!donnees) {
     return (

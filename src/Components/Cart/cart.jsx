@@ -11,11 +11,11 @@ const Cart = ({ show, handleClose }) => {
     const [basketQuantities, setBasketQuantities] = useState({}); // State pour stocker les quantités des produits dans le panier
 
     useEffect(() => {
-        // Rafraîchir le panier chaque fois que le panier change
+        
         setBasket(getBasket());
-    }, [show]); // Mettez à jour lorsque l'état de l'affichage du panier change
+    }, [show]); 
 
-    // Mettre à jour les quantités des produits dans le panier
+    
     useEffect(() => {
         const updatedQuantities = {};
         basket.forEach(item => {
@@ -37,12 +37,12 @@ const Cart = ({ show, handleClose }) => {
     const product = basket
     .filter(item => basketQuantities[item.id] > 0)
     .map((item, index) => {
-        const isEvenRow = index % 2 === 0; // Vérifie si c'est une ligne paire ou impaire
+        const isEvenRow = index % 2 === 0; 
         const rowStyle = {
             alignItems: 'center',
             marginBottom: '3px',
             fontSize: '1.2em',
-            backgroundColor: isEvenRow ? '#f2f2f2' : 'transparent', // Appliquer un fond gris une fois sur deux
+            backgroundColor: isEvenRow ? '#f2f2f2' : 'transparent', 
         };
         return (
             <Row key={item.id} style={rowStyle}>
@@ -107,7 +107,7 @@ const Cart = ({ show, handleClose }) => {
                             </Modal.Title>
                         </Row>
                     ) : (
-                        // Code to display when there are no items in the cart
+                       
                         <Row>
                             <Col xs={12}>
                                 <h4>You don't have any products in your cart.</h4>
